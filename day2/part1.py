@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import sys
-import csv
 
 class Position:
     """ Holds the position"""
@@ -38,20 +37,20 @@ def move(position, next_move):
     elif next_move == "L":
         position.move_left()
     else:
-        ValueError('Move unknown: {}'.format(next_move))
+        raise ValueError('Move unknown: {}'.format(next_move))
     
 if len(sys.argv) != 2:
-    ValueError('Must have the source file as the first argument')
+    raise ValueError('Must have the source file as the first argument')
 
 position = Position()
 code = []
 with open(sys.argv[1], 'rb') as source:
-    line = source.readline()
+    line = source.readline().strip()
     while line:
         for c in str(line):
             move(position, c)
         code.append(str(position))
-        line = source.readline()
+        line = source.readline().strip()
 source.close()            
 print "Code: {}".format('-'.join(code))
 

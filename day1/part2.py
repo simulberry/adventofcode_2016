@@ -45,7 +45,8 @@ class Position:
         return abs(self.x - x) + abs(self.y - y)
         
 if len(sys.argv) != 2:
-    ValueError('Must have the source file as the first argument')
+    raise ValueError('Must have the source file as the first argument')
+
 position = Position()
 position_history = {position.get_location(): 1}
 hq_x = 0

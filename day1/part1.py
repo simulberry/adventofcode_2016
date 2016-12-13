@@ -52,7 +52,7 @@ class Position:
         self.move_forward(int(move_code[1:]))
 
 if len(sys.argv) != 2:
-    ValueError('Must have the source file as the first argument')
+    raise ValueError('Must have the source file as the first argument')
 
 position = Position()
 with open(sys.argv[1], 'rb') as csvfile:
