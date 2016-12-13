@@ -45,12 +45,12 @@ if len(sys.argv) != 2:
 position = Position()
 code = []
 with open(sys.argv[1], 'rb') as source:
-    line = source.readline().strip()
+    line = source.readline()
     while line:
-        for c in str(line):
+        for c in line.strip():
             move(position, c)
         code.append(str(position))
-        line = source.readline().strip()
+        line = source.readline()
 source.close()            
 print "Code: {}".format('-'.join(code))
 
