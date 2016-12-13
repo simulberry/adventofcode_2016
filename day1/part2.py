@@ -86,7 +86,7 @@ with open(sys.argv[1], 'rb') as csvfile:
     for row in spamreader:
         for element in row:
             move(position, element.strip())
-
+csvfile.close()
 print "Final position: {}".format(position)
 print "Distance from the start: {}".format(position.distance())
 start_position = Position()
