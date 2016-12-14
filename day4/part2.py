@@ -35,10 +35,8 @@ class Room:
                 decoded += " "
             elif letter.isalpha():
                 letter_number = ord(letter) - 97
-#                print "{} - {}".format(letter,letter_number)
                 letter_number += self.sector_id
                 decoded += chr(letter_number % 26 + 97)
-#                print "{} - {}".format(decoded,97+letter_number%26)
         return decoded
         
     def __str__(self):
