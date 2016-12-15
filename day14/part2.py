@@ -24,7 +24,7 @@ while index == -1:
     matches = re.findall(regex, test_string)
     if len(matches) > 0:
         regex2 = "({})\\1{{4,}}".format(matches[0][0])
-        for x in range(salt+1, salt+1000):
+        for x in range(salt+1, salt+1001):
             test_string = get_hash("{}{}".format(sys.argv[1],x), 2017)
             sub_matches = re.findall(regex2, test_string)
             if len(sub_matches) > 0:
